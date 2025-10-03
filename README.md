@@ -40,12 +40,13 @@ Proyek ini adalah implementasi REST API menggunakan **Node.js + Express + MySQL*
 
    ```bash
    git clone https://github.com/syhdnfaisal/faisalakbar-it-app-support-test
-   cd crud-employees
+   cd faisalakbar-it-app-support-test
    ```
 
 2. **Install dependencies**
 
    ```bash
+   npm init -y
    npm install express mysql2 nodemon
    ```
 
@@ -91,8 +92,10 @@ Proyek ini adalah implementasi REST API menggunakan **Node.js + Express + MySQL*
 
 4. **Jalankan server**
 
-   cd crud-employees
+    ```bash
+   cd faisalakbar-it-app-support-test
    npm run dev
+   ```
    
 
 5. **Server berjalan di**
