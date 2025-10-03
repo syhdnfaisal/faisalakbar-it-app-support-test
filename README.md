@@ -53,10 +53,9 @@ Proyek ini adalah implementasi REST API menggunakan **Node.js + Express + MySQL*
 3. **Konfigurasi database**
 
    * Buat database MySQL atau Restore database zulu.sql
+   * Nama Database: zulu
 
      ```sql
-    Nama Database: zulu
-
      CREATE TABLE division (
        id_division INT AUTO_INCREMENT PRIMARY KEY,
        division_name VARCHAR(100)
