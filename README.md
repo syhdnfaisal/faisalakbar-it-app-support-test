@@ -32,21 +32,6 @@ Proyek ini adalah implementasi REST API menggunakan **Node.js + Express + MySQL*
 
 ---
 
-## 📂 Struktur Project
-
-```
-project-root/
-│-- config/
-│   └── db.js           # Koneksi ke database MySQL
-│-- routes/
-│   ├── employees.js    # Endpoint employees
-│   ├── departments.js  # Endpoint departments
-│   └── divisions.js    # Endpoint divisions
-│-- index.js            # Entry point server
-│-- package.json
-│-- README.md
-```
-
 ---
 
 ## ⚙️ Instalasi & Menjalankan
