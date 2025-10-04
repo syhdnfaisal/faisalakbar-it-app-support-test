@@ -78,6 +78,61 @@ Proyek ini adalah implementasi REST API menggunakan **Node.js + Express + MySQL*
      );
      ```
 
+     ```sql
+      select * from division;
+      +-------------+------------------------+
+      | id_division | division_name          |
+      +-------------+------------------------+
+      |           1 | Information Technology |
+      |           3 | Finance & Accounting   |
+      |           4 | Human Resources        |
+      +-------------+------------------------+
+
+      select * from department;
+      +---------------+-------------+-----------------------+
+      | id_department | id_division | department_name       |
+      +---------------+-------------+-----------------------+
+      |             1 |           1 | IT Development        |
+      |             2 |           1 | Application Support   |
+      |             3 |           1 | IT Infrastructure     |
+      |             4 |           1 | IT Network Operations |
+      |             5 |           3 | Finance               |
+      |             6 |           3 | Accounting            |
+      |             7 |           4 | Recruiter             |
+      |             8 |           4 | Talent Acquisition    |
+      +---------------+-------------+-----------------------+
+
+      select * from employees;
+      +--------------+------------------+----------------------------+---------------+------------+
+      | id_employees | employee_name    | employee_email             | department_id | hire_date  |
+      +--------------+------------------+----------------------------+---------------+------------+
+      |            1 | Test             | test@gmail.com             |             5 | 2025-10-03 |
+      |            4 | Faisal           | faisal@gmail.com           |             6 | 2025-10-03 |
+      |            5 | Akbar            | Akbar@gmail.com            |             2 | 2025-10-03 |
+      |            6 | Nurul Fadhilah   | nurulfadhilah488@gmail.com |             1 | 2025-10-03 |
+      |            7 | Wahyudiyanto     | wahyudiyanto@gmail.com     |             7 | 2025-10-03 |
+      |            8 | Baihaqi Ramadhan | baihaqiramadhan@gmail.com  |             4 | 2025-10-03 |
+      |            9 | Akbar Faisal     | akbarfaisal@gmail.com      |             2 | 2025-10-03 |
+      +--------------+------------------+----------------------------+---------------+------------+
+     
+     SELECT e.id_employees, e.employee_name, e.employee_email, e.hire_date,
+           d.department_name, dd.division_name
+        FROM employees e
+        JOIN department d ON e.department_id = d.id_department
+        JOIN division dd ON d.id_division = dd.id_division;
+     +--------------+------------------+----------------------------+------------+-----------------------+------------------------+
+    | id_employees | employee_name    | employee_email             | hire_date  | department_name       | division_name          |
+    +--------------+------------------+----------------------------+------------+-----------------------+------------------------+
+    |            5 | Akbar            | Akbar@gmail.com            | 2025-10-03 | Application Support   | Information Technology |
+    |            6 | Nurul Fadhilah   | nurulfadhilah488@gmail.com | 2025-10-03 | IT Development        | Information Technology |
+    |            8 | Baihaqi Ramadhan | baihaqiramadhan@gmail.com  | 2025-10-03 | IT Network Operations | Information Technology |
+    |            9 | Akbar Faisal     | akbarfaisal@gmail.com      | 2025-10-03 | Application Support   | Information Technology |
+    |            1 | Test             | test@gmail.com             | 2025-10-03 | Finance               | Finance & Accounting   |
+    |            4 | Faisal           | faisal@gmail.com           | 2025-10-03 | Accounting            | Finance & Accounting   |
+    |            7 | Wahyudiyanto     | wahyudiyanto@gmail.com     | 2025-10-03 | Recruiter             | Human Resources        |
+    +--------------+------------------+----------------------------+------------+-----------------------+------------------------+
+     ```
+
    * Edit file `src/db.js` untuk menyesuaikan koneksi:
 
      ```js
